@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "dev": "nodemon index.js -e html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "enable3d": "^0.25.1",
+    "express": "^4.17.3",
+    "node": "^17.4.0",
+    "nodemon": "^2.0.15"
+  }
+}
