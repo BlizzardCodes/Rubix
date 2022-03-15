@@ -51,35 +51,34 @@
 
           const blocks = [];
 
-          const addTower = () => {
-            const red = this.third.add.material({
-              lambert: { color: 0xff0000 },
-            });
-            const green = this.third.add.material({
-              lambert: { color: 0x00ff00 },
-            });
-            const blue = this.third.add.material({
-              lambert: {
-                color: 0x0000ff,
-              },
-            });
+          const red = this.third.add.material({
+            lambert: { color: 0xff0000 },
+          });
+          const green = this.third.add.material({
+            lambert: { color: 0x00ff00 },
+          });
+          const blue = this.third.add.material({
+            lambert: { color: 0x0000ff },
+          });
+          const purple = this.third.add.material({
+            lambert: { color: 0x7f00ff },
+          });
+          const orange = this.third.add.material({
+            lambert: { color: 0xffa500 },
+          });
 
-            for (let i = 0; i < 1; i++) {
-              for (let j = 0; j < 3; j++) {
-                for (let k = 0; k < 3; k++) {
+          const colors = [red, green, blue, purple, orange];
+          const CUBE_SIZE = 3;
+
+          const addTower = () => {
+            for (let i = 0; i < CUBE_SIZE; i++) {
+              for (let j = 0; j < CUBE_SIZE; j++) {
+                for (let k = 0; k < CUBE_SIZE; k++) {
                   //console.log(i, j, k);
                   blocks.push(
                     this.third.physics.add.box(
                       { x: i, y: j, z: k, width: 1, height: 1 },
-                      { custom: red }
-                    ),
-                    this.third.physics.add.box(
-                      { x: i, y: j, z: k, width: 1, height: 1 },
-                      { custom: green }
-                    ),
-                    this.third.physics.add.box(
-                      { x: i, y: j, z: k, width: 1, height: 1 },
-                      { custom: blue }
+                      { custom: colors[i % colors.length] }
                     )
                   );
                 }
