@@ -16,12 +16,10 @@ class MainScene extends Scene3D {
   }
 
   async create() {
-    const texture = new THREE.TextureLoader().load(
-      "textures/land_ocean_ice_cloud_2048.jpg"
-    );
+    const texture = new THREE.TextureLoader().load("textures/checkerd.png");
 
     // immediately use the texture for material creation
-    const material = new THREE.MeshBasicMaterial({ map: texture });
+    const imageMaterial = new THREE.MeshBasicMaterial({ map: texture });
     // this.third.warpSpeed('-orbitControls')
 
     const { lights } = await this.third.warpSpeed("-orbitControls");
@@ -39,44 +37,19 @@ class MainScene extends Scene3D {
 
     const blocks = [];
 
-    const red = this.third.add.material({
-      lambert: { color: 0xff0000 },
-    });
-    const green = this.third.add.material({
-      lambert: { color: 0x00ff00 },
-    });
-    const blue = this.third.add.material({
-      lambert: { color: 0x0000ff },
-    });
-    const purple = this.third.add.material({
-      lambert: { color: 0x7f00ff },
-    });
-    const orange = this.third.add.material({
-      lambert: { color: 0xffa500 },
-    });
+    var geometry = new THREE.BoxGeometry(1, 2, 1);
+    var materials = [
+      new THREE.MeshBasicMaterial({ color: 0x000000 }),
+      new THREE.MeshBasicMaterial({ color: 0xff0000 }),
+      new THREE.MeshBasicMaterial({ color: 0xffffff }),
+      new THREE.MeshBasicMaterial({ color: 0x000000 }),
+      new THREE.MeshBasicMaterial({ color: 0x0000ff }),
+      new THREE.MeshBasicMaterial({ color: 0x000000 }),
+    ];
+    
 
-    const colors = [red, green, blue, purple, orange];
-    const CUBE_SIZE = 3;
-    const addTower = () => {
-      for (let i = 0; i < CUBE_SIZE; i++) {
-        for (let j = 0; j < CUBE_SIZE; j++) {
-          for (let k = 0; k < CUBE_SIZE; k++) {
-            //console.log(i, j, k);
-            blocks.push(
-              this.third.physics.add.box(
-                { x: i, y: j, z: k, width: 1, height: 1 },
-                { custom: colors[i % colors.length] }
-              )
-            );
-          }
-        }
-      }
-      blocks.forEach((block) => {
-        block.body.setFriction(0.8);
-      });
-    };
-    addTower();
-
+    var mesh = new THREE.Mesh(geometry, materials);
+    this.third.add.existing(mesh); //magic line
     const raycaster = new THREE.Raycaster();
 
     this.input.on("pointerdown", () => {
@@ -84,16 +57,6 @@ class MainScene extends Scene3D {
 
       raycaster.setFromCamera({ x, y }, this.third.camera);
 
-      const intersection = raycaster.intersectObjects(blocks);
-
-      if (intersection.length > 0) {
-        const block = intersection[0].object;
-        this.selected = block;
-        this.selected?.body.setCollisionFlags(2);
-
-        this.mousePosition.copy(intersection[0].point);
-        this.blockOffset.subVectors(this.selected.position, this.mousePosition);
-      }
 
       this.prev = { x, y };
     });
