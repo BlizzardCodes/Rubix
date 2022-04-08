@@ -1,4 +1,5 @@
 const { enable3d, Scene3D, Canvas, THREE } = ENABLE3D;
+
 class MainScene extends Scene3D {
   constructor() {
     super({ key: "MainScene" });
@@ -30,39 +31,14 @@ class MainScene extends Scene3D {
     hemisphereLight.intensity = intensity;
     ambientLight.intensity = intensity;
     directionalLight.intensity = intensity;
-    this.third.camera.position.set(-8, 8, 8);
+    this.third.camera.position.set(-8, 8, 8); // controls the camera posistion
     this.third.camera.lookAt(0, 2, 0);
-
+    // These things need to be in a array. Create an array, use the array name ".push" to add all these elements to the array.
+    // Use "foreach" to cycle through all the arrays and pass them to the "magic line".
     //@todo do not use abrevations
-    var tbrd = new THREE.BoxGeometry(1, 2, 1); //topBottomRight
-    var tbcd = new THREE.BoxGeometry(1, 2, 1);
-    var tbl = new THREE.BoxGeometry(1, 2, 1);
-    var tcr = new THREE.BoxGeometry(1, 2, 1);
-    var tcc = new THREE.BoxGeometry(1, 2, 1);
-    var tcl = new THREE.BoxGeometry(1, 2, 1);
-    var ttr = new THREE.BoxGeometry(1, 2, 1);
-    var ttc = new THREE.BoxGeometry(1, 2, 1);
-    var ttl = new THREE.BoxGeometry(1, 2, 1);
-    var cbr = new THREE.BoxGeometry(1, 2, 1);
-    var cbc = new THREE.BoxGeometry(1, 2, 1);
-    var cbl = new THREE.BoxGeometry(1, 2, 1);
-    var ccr = new THREE.BoxGeometry(1, 2, 1);
-    var ccc = new THREE.BoxGeometry(1, 2, 1);
-    var ccl = new THREE.BoxGeometry(1, 2, 1);
-    var ctr = new THREE.BoxGeometry(1, 2, 1);
-    var ctc = new THREE.BoxGeometry(1, 2, 1);
-    var ctl = new THREE.BoxGeometry(1, 2, 1);
-    var bbr = new THREE.BoxGeometry(1, 2, 1);
-    var bbc = new THREE.BoxGeometry(1, 2, 1);
-    var bbl = new THREE.BoxGeometry(1, 2, 1);
-    var bcr = new THREE.BoxGeometry(1, 2, 1);
-    var bcc = new THREE.BoxGeometry(1, 2, 1);
-    var bcl = new THREE.BoxGeometry(1, 2, 1);
-    var btr = new THREE.BoxGeometry(1, 2, 1);
-    var btc = new THREE.BoxGeometry(1, 2, 1);
-    var btl = new THREE.BoxGeometry(1, 2, 1);
 
-    var tbrm = [
+    const geometry = new THREE.BoxGeometry(1, 1, 1);
+    const materials = [
       new THREE.MeshBasicMaterial({ color: 0x000000 }),
       new THREE.MeshBasicMaterial({ color: 0xff0000 }),
       new THREE.MeshBasicMaterial({ color: 0xffffff }),
@@ -70,114 +46,11 @@ class MainScene extends Scene3D {
       new THREE.MeshBasicMaterial({ color: 0x0000ff }),
       new THREE.MeshBasicMaterial({ color: 0x000000 }),
     ];
-    var tbcm = [
-      new THREE.MeshBasicMaterial({ color: 0x000000 }),
-      new THREE.MeshBasicMaterial({ color: 0xff0000 }),
-      new THREE.MeshBasicMaterial({ color: 0xffffff }),
-      new THREE.MeshBasicMaterial({ color: 0x000000 }),
-      new THREE.MeshBasicMaterial({ color: 0x0000ff }),
-      new THREE.MeshBasicMaterial({ color: 0x000000 }),
-    ];
-    var tbl = [
-      new THREE.MeshBasicMaterial({ color: 0x000000 }),
-      new THREE.MeshBasicMaterial({ color: 0xff0000 }),
-      new THREE.MeshBasicMaterial({ color: 0xffffff }),
-      new THREE.MeshBasicMaterial({ color: 0x000000 }),
-      new THREE.MeshBasicMaterial({ color: 0x0000ff }),
-      new THREE.MeshBasicMaterial({ color: 0x000000 }),
-    ];
-    var tcr = [
-      new THREE.MeshBasicMaterial({ color: 0x000000 }),
-      new THREE.MeshBasicMaterial({ color: 0xff0000 }),
-      new THREE.MeshBasicMaterial({ color: 0xffffff }),
-      new THREE.MeshBasicMaterial({ color: 0x000000 }),
-      new THREE.MeshBasicMaterial({ color: 0x0000ff }),
-      new THREE.MeshBasicMaterial({ color: 0x000000 }),
-    ];
-    var tcc = [
-      new THREE.MeshBasicMaterial({ color: 0x000000 }),
-      new THREE.MeshBasicMaterial({ color: 0xff0000 }),
-      new THREE.MeshBasicMaterial({ color: 0xffffff }),
-      new THREE.MeshBasicMaterial({ color: 0x000000 }),
-      new THREE.MeshBasicMaterial({ color: 0x0000ff }),
-      new THREE.MeshBasicMaterial({ color: 0x000000 }),
-    ];
-    var tcl = [
-      new THREE.MeshBasicMaterial({ color: 0x000000 }),
-      new THREE.MeshBasicMaterial({ color: 0xff0000 }),
-      new THREE.MeshBasicMaterial({ color: 0xffffff }),
-      new THREE.MeshBasicMaterial({ color: 0x000000 }),
-      new THREE.MeshBasicMaterial({ color: 0x0000ff }),
-      new THREE.MeshBasicMaterial({ color: 0x000000 }),
-    ];
-    var ttr = [
-      new THREE.MeshBasicMaterial({ color: 0x000000 }),
-      new THREE.MeshBasicMaterial({ color: 0xff0000 }),
-      new THREE.MeshBasicMaterial({ color: 0xffffff }),
-      new THREE.MeshBasicMaterial({ color: 0x000000 }),
-      new THREE.MeshBasicMaterial({ color: 0x0000ff }),
-      new THREE.MeshBasicMaterial({ color: 0x000000 }),
-    ];
-    var ttl = [
-      new THREE.MeshBasicMaterial({ color: 0x000000 }),
-      new THREE.MeshBasicMaterial({ color: 0xff0000 }),
-      new THREE.MeshBasicMaterial({ color: 0xffffff }),
-      new THREE.MeshBasicMaterial({ color: 0x000000 }),
-      new THREE.MeshBasicMaterial({ color: 0x0000ff }),
-      new THREE.MeshBasicMaterial({ color: 0x000000 }),
-    ];
-    var ttc = [
-      new THREE.MeshBasicMaterial({ color: 0x000000 }),
-      new THREE.MeshBasicMaterial({ color: 0xff0000 }),
-      new THREE.MeshBasicMaterial({ color: 0xffffff }),
-      new THREE.MeshBasicMaterial({ color: 0x000000 }),
-      new THREE.MeshBasicMaterial({ color: 0x0000ff }),
-      new THREE.MeshBasicMaterial({ color: 0x000000 }),
-    ];
-    var ttr = [
-      new THREE.MeshBasicMaterial({ color: 0x000000 }),
-      new THREE.MeshBasicMaterial({ color: 0xff0000 }),
-      new THREE.MeshBasicMaterial({ color: 0xffffff }),
-      new THREE.MeshBasicMaterial({ color: 0x000000 }),
-      new THREE.MeshBasicMaterial({ color: 0x0000ff }),
-      new THREE.MeshBasicMaterial({ color: 0x000000 }),
-    ];
-    var ttc = [
-      new THREE.MeshBasicMaterial({ color: 0x000000 }),
-      new THREE.MeshBasicMaterial({ color: 0xff0000 }),
-      new THREE.MeshBasicMaterial({ color: 0xffffff }),
-      new THREE.MeshBasicMaterial({ color: 0x000000 }),
-      new THREE.MeshBasicMaterial({ color: 0x0000ff }),
-      new THREE.MeshBasicMaterial({ color: 0x000000 }),
-    ];
-    var ttl = [
-      new THREE.MeshBasicMaterial({ color: 0x000000 }),
-      new THREE.MeshBasicMaterial({ color: 0xff0000 }),
-      new THREE.MeshBasicMaterial({ color: 0xffffff }),
-      new THREE.MeshBasicMaterial({ color: 0x000000 }),
-      new THREE.MeshBasicMaterial({ color: 0x0000ff }),
-      new THREE.MeshBasicMaterial({ color: 0x000000 }),
-    ];
-    var ttc = [
-      new THREE.MeshBasicMaterial({ color: 0x000000 }),
-      new THREE.MeshBasicMaterial({ color: 0xff0000 }),
-      new THREE.MeshBasicMaterial({ color: 0xffffff }),
-      new THREE.MeshBasicMaterial({ color: 0x000000 }),
-      new THREE.MeshBasicMaterial({ color: 0x0000ff }),
-      new THREE.MeshBasicMaterial({ color: 0x000000 }),
-    ];
-    var ttr = [
-      new THREE.MeshBasicMaterial({ color: 0x000000 }),
-      new THREE.MeshBasicMaterial({ color: 0xff0000 }),
-      new THREE.MeshBasicMaterial({ color: 0xffffff }),
-      new THREE.MeshBasicMaterial({ color: 0x000000 }),
-      new THREE.MeshBasicMaterial({ color: 0x0000ff }),
-      new THREE.MeshBasicMaterial({ color: 0x000000 }),
-    ];
+    const cube = new THREE.Mesh(geometry, materials);
+    cube.position.x = -1;
+    cube.position.y = 1;
 
-    var mesh = new THREE.Mesh(tbrd, tbrm);
-    //scene.add(mesh);
-    this.third.add.existing(mesh); //magic line
+    this.third.add.existing(cube); //magic line
   }
 }
 
