@@ -1,5 +1,7 @@
 const { enable3d, Scene3D, Canvas, THREE } = ENABLE3D;
 
+let debugmesh = null;
+
 class MainScene extends Scene3D {
   constructor() {
     super({ key: "MainScene" });
@@ -38,19 +40,52 @@ class MainScene extends Scene3D {
     //@todo do not use abrevations
 
     const geometry = new THREE.BoxGeometry(1, 1, 1);
-    const materials = [
-      new THREE.MeshBasicMaterial({ color: 0x000000 }),
-      new THREE.MeshBasicMaterial({ color: 0xff0000 }),
-      new THREE.MeshBasicMaterial({ color: 0xffffff }),
-      new THREE.MeshBasicMaterial({ color: 0x000000 }),
-      new THREE.MeshBasicMaterial({ color: 0x0000ff }),
-      new THREE.MeshBasicMaterial({ color: 0x000000 }),
+    const sideColors = [
+      [
+        new THREE.MeshBasicMaterial({ color: 0x000000 }),
+        new THREE.MeshBasicMaterial({ color: 0xff0000 }),
+        new THREE.MeshBasicMaterial({ color: 0xffffff }),
+        new THREE.MeshBasicMaterial({ color: 0x000000 }),
+        new THREE.MeshBasicMaterial({ color: 0x0000ff }),
+        new THREE.MeshBasicMaterial({ color: 0x000000 }),
+      ],
+      [
+        new THREE.MeshBasicMaterial({ color: 0x000000 }),
+        new THREE.MeshBasicMaterial({ color: 0xff0000 }),
+        new THREE.MeshBasicMaterial({ color: 0xffffff }),
+        new THREE.MeshBasicMaterial({ color: 0x000000 }),
+        new THREE.MeshBasicMaterial({ color: 0x0000ff }),
+        new THREE.MeshBasicMaterial({ color: 0x000000 }),
+      ],
+      [
+        new THREE.MeshBasicMaterial({ color: 0x000000 }),
+        new THREE.MeshBasicMaterial({ color: 0xff0000 }),
+        new THREE.MeshBasicMaterial({ color: 0xffffff }),
+        new THREE.MeshBasicMaterial({ color: 0x000000 }),
+        new THREE.MeshBasicMaterial({ color: 0x0000ff }),
+        new THREE.MeshBasicMaterial({ color: 0x000000 }),
+      ],
     ];
-    const cube = new THREE.Mesh(geometry, materials);
-    cube.position.x = -1;
-    cube.position.y = 1;
+    const CUBE_SIZE = 3;
+    let cubeCount = 0;
+    for (let i = 0; i < CUBE_SIZE; i++) {
+      for (let j = 0; j < CUBE_SIZE; j++) {
+        for (let k = 0; k < CUBE_SIZE; k++) {
+          
+          const cube = new THREE.Mesh(geometry, sideColors[cubeCount]);
+          cube.position.set(i, j, k);
+          debugmesh = cube;
 
-    this.third.add.existing(cube); //magic line
+          this.third.add.existing(cube); //magic line
+          cubeCount++;
+        }
+      }
+    }
+    // const cube = new THREE.Mesh(geometry, materials);
+    // cube.position.x = -1;
+    // cube.position.y = 1;
+
+    // this.third.add.existing(cube); //magic line
   }
 }
 
