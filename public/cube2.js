@@ -31,17 +31,18 @@ function init() {
 
   var geometry = new THREE.BoxGeometry(0.2, 0.2, 0.2);
   var materials = [
-    new THREE.MeshBasicMaterial({ color: 0x000000 }),
-    new THREE.MeshBasicMaterial({ color: 0x0000ff }),
-    new THREE.MeshBasicMaterial({ color: 0xff0000 }),
-    new THREE.MeshBasicMaterial({ color: 0x000000 }),
-    new THREE.MeshBasicMaterial({ color: 0xffffff }),
-    new THREE.MeshBasicMaterial({ color: 0x000000 }),
- 
+    [
+      new THREE.MeshBasicMaterial({ color: 0x000000 }),
+      new THREE.MeshBasicMaterial({ color: 0x0000ff }),
+      new THREE.MeshBasicMaterial({ color: 0xff0000 }),
+      new THREE.MeshBasicMaterial({ color: 0x000000 }),
+      new THREE.MeshBasicMaterial({ color: 0xffffff }),
+      new THREE.MeshBasicMaterial({ color: 0x000000 }),
+    ],
   ];
 
   mesh = new THREE.Mesh(geometry, materials);
-  scene.add(mesh);
+  scene.add(mesh++);
 
   renderer = new THREE.WebGLRenderer({ antialias: true });
   renderer.setSize(window.innerWidth, window.innerHeight);
