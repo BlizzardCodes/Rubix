@@ -18,7 +18,7 @@ class MainScene extends Scene3D {
   async create() {
     // this.third.warpSpeed('-orbitControls')
 
-    const { lights } = await this.third.warpSpeed("-orbitControls");
+    const { lights } = await this.third.warpSpeed("-ground");
 
     const { hemisphereLight, ambientLight, directionalLight } = lights;
     //console.log(hemisphereLight.intensity, ambientLight.intensity, directionalLight.intensity)
@@ -27,12 +27,15 @@ class MainScene extends Scene3D {
     hemisphereLight.intensity = intensity;
     ambientLight.intensity = intensity;
     directionalLight.intensity = intensity;
-    this.third.camera.position.set(-8, 8, -8);
+    this.third.camera.position.set(-8, 8, 8);
     this.third.camera.lookAt(0, 2, 0);
 
     // These things need to be in a array. Create an array, use the array name ".push" to add all these elements to the array.
     // Use "foreach" to cycle through all the arrays and pass them to the "magic line".
     //@todo do not use abrevations
+
+    const greenMaterial = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+    const whiteMaterial = new THREE.MeshBasicMaterial({ color: 0xffcccc });
 
     const geometry = new THREE.BoxGeometry(1, 1, 1);
     const sideColors = [
@@ -87,7 +90,7 @@ class MainScene extends Scene3D {
       [
         new THREE.MeshBasicMaterial({ color: 0x000000 }), //back right
         new THREE.MeshBasicMaterial({ color: 0x0000ff }), //left
-        new THREE.MeshBasicMaterial({ color: 0xffffff }), //top
+        whiteMaterial, //top
         new THREE.MeshBasicMaterial({ color: 0x000000 }), //bottom
         new THREE.MeshBasicMaterial({ color: 0x000000 }), //right
         new THREE.MeshBasicMaterial({ color: 0xfa5000 }), //back left
@@ -95,7 +98,7 @@ class MainScene extends Scene3D {
       [
         new THREE.MeshBasicMaterial({ color: 0x000000 }), //back right
         new THREE.MeshBasicMaterial({ color: 0x0000ff }), //left
-        new THREE.MeshBasicMaterial({ color: 0xffffff }), //top
+        whiteMaterial, //top
         new THREE.MeshBasicMaterial({ color: 0x000000 }), //bottom
         new THREE.MeshBasicMaterial({ color: 0x000000 }), //right
         new THREE.MeshBasicMaterial({ color: 0x000000 }), //back left
@@ -103,7 +106,7 @@ class MainScene extends Scene3D {
       [
         new THREE.MeshBasicMaterial({ color: 0x000000 }), //back right
         new THREE.MeshBasicMaterial({ color: 0x0000ff }), //left
-        new THREE.MeshBasicMaterial({ color: 0xffffff }), //top
+        whiteMaterial, //top
         new THREE.MeshBasicMaterial({ color: 0x000000 }), //bottom
         new THREE.MeshBasicMaterial({ color: 0xff0000 }), //right
         new THREE.MeshBasicMaterial({ color: 0x000000 }), //back left
@@ -112,7 +115,7 @@ class MainScene extends Scene3D {
         new THREE.MeshBasicMaterial({ color: 0x000000 }), //back right
         new THREE.MeshBasicMaterial({ color: 0x000000 }), //left
         new THREE.MeshBasicMaterial({ color: 0x000000 }), //top
-        new THREE.MeshBasicMaterial({ color: 0xfff00 }), //bottom
+        new THREE.MeshBasicMaterial({ color: 0xfff000 }), //bottom
         new THREE.MeshBasicMaterial({ color: 0x000000 }), //right
         new THREE.MeshBasicMaterial({ color: 0xfa5000 }), //back left
       ],
@@ -120,7 +123,7 @@ class MainScene extends Scene3D {
         new THREE.MeshBasicMaterial({ color: 0x000000 }), //back right
         new THREE.MeshBasicMaterial({ color: 0x000000 }), //left
         new THREE.MeshBasicMaterial({ color: 0x000000 }), //top
-        new THREE.MeshBasicMaterial({ color: 0xfff00 }), //bottom
+        new THREE.MeshBasicMaterial({ color: 0xfff000 }), //bottom
         new THREE.MeshBasicMaterial({ color: 0x000000 }), //right
         new THREE.MeshBasicMaterial({ color: 0x000000 }), //back left
       ],
@@ -159,7 +162,7 @@ class MainScene extends Scene3D {
       [
         new THREE.MeshBasicMaterial({ color: 0x000000 }), //back right
         new THREE.MeshBasicMaterial({ color: 0x000000 }), //left
-        new THREE.MeshBasicMaterial({ color: 0xffffff }), //top
+        whiteMaterial, //top
         new THREE.MeshBasicMaterial({ color: 0x000000 }), //bottom
         new THREE.MeshBasicMaterial({ color: 0x000000 }), //right
         new THREE.MeshBasicMaterial({ color: 0xfa5000 }), //back left
@@ -167,7 +170,7 @@ class MainScene extends Scene3D {
       [
         new THREE.MeshBasicMaterial({ color: 0x000000 }), //back right
         new THREE.MeshBasicMaterial({ color: 0x000000 }), //left
-        new THREE.MeshBasicMaterial({ color: 0xffffff }), //top
+        whiteMaterial, //top
         new THREE.MeshBasicMaterial({ color: 0x000000 }), //bottom
         new THREE.MeshBasicMaterial({ color: 0x000000 }), //right
         new THREE.MeshBasicMaterial({ color: 0x000000 }), //back left
@@ -175,7 +178,7 @@ class MainScene extends Scene3D {
       [
         new THREE.MeshBasicMaterial({ color: 0x000000 }), //back right
         new THREE.MeshBasicMaterial({ color: 0x000000 }), //left
-        new THREE.MeshBasicMaterial({ color: 0xffffff }), //top
+        whiteMaterial, //top
         new THREE.MeshBasicMaterial({ color: 0x000000 }), //bottom
         new THREE.MeshBasicMaterial({ color: 0xff0000 }), //right
         new THREE.MeshBasicMaterial({ color: 0x000000 }), //back left
@@ -211,7 +214,8 @@ class MainScene extends Scene3D {
         new THREE.MeshBasicMaterial({ color: 0x000000 }), //bottom
         new THREE.MeshBasicMaterial({ color: 0x000000 }), //right
         new THREE.MeshBasicMaterial({ color: 0xfa5000 }), //back left
-      ],[
+      ],
+      [
         new THREE.MeshBasicMaterial({ color: 0x00ff00 }), //back right
         new THREE.MeshBasicMaterial({ color: 0x000000 }), //left
         new THREE.MeshBasicMaterial({ color: 0x000000 }), //top
@@ -230,15 +234,15 @@ class MainScene extends Scene3D {
       [
         new THREE.MeshBasicMaterial({ color: 0x00ff00 }), //back right
         new THREE.MeshBasicMaterial({ color: 0x000000 }), //left
-        new THREE.MeshBasicMaterial({ color: 0xffffff }), //top
+        whiteMaterial, //top
         new THREE.MeshBasicMaterial({ color: 0x000000 }), //bottom
         new THREE.MeshBasicMaterial({ color: 0x000000 }), //right
         new THREE.MeshBasicMaterial({ color: 0xfa5000 }), //back left
       ],
       [
-        new THREE.MeshBasicMaterial({ color: 0x00ff00 }), //back right
+        greenMaterial, //back right
         new THREE.MeshBasicMaterial({ color: 0x000000 }), //left
-        new THREE.MeshBasicMaterial({ color: 0xffffff }), //top
+        whiteMaterial, //top
         new THREE.MeshBasicMaterial({ color: 0x000000 }), //bottom
         new THREE.MeshBasicMaterial({ color: 0x000000 }), //right
         new THREE.MeshBasicMaterial({ color: 0x000000 }), //back left
@@ -246,7 +250,7 @@ class MainScene extends Scene3D {
       [
         new THREE.MeshBasicMaterial({ color: 0x00ff00 }), //back right
         new THREE.MeshBasicMaterial({ color: 0x000000 }), //left
-        new THREE.MeshBasicMaterial({ color: 0xffffff }), //top
+        whiteMaterial, //top
         new THREE.MeshBasicMaterial({ color: 0x000000 }), //bottom
         new THREE.MeshBasicMaterial({ color: 0xff0000 }), //right
         new THREE.MeshBasicMaterial({ color: 0x000000 }), //back left
@@ -267,6 +271,7 @@ class MainScene extends Scene3D {
     }
   }
 }
+
 const config = {
   type: Phaser.WEBGL,
   transparent: true,

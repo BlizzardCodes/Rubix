@@ -47,7 +47,7 @@ class MainScene extends Scene3D {
       new THREE.MeshBasicMaterial({ color: 0x000000 }),
     ];
     
-
+    console.log(input)
     var mesh = new THREE.Mesh(geometry, materials);
     this.third.add.existing(mesh); //magic line
     const raycaster = new THREE.Raycaster();
@@ -75,6 +75,7 @@ class MainScene extends Scene3D {
     const y = -(pointer.y / this.cameras.main.height) * 2 + 1;
     return { x, y };
   }
+
 
   update() {
     if (this.selected?.body.getCollisionFlags() === 2) {
