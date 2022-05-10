@@ -27,233 +27,233 @@ class MainScene extends Scene3D {
     hemisphereLight.intensity = intensity;
     ambientLight.intensity = intensity;
     directionalLight.intensity = intensity;
-    this.third.camera.position.set(-8, 8, 8);
-    this.third.camera.lookAt(0, 2, 0);
-
-    // These things need to be in a array. Create an array, use the array name ".push" to add all these elements to the array.
-    // Use "foreach" to cycle through all the arrays and pass them to the "magic line".
-    //@todo do not use abrevations
-
-    const greenMaterial = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+    
     const whiteMaterial = new THREE.MeshBasicMaterial({ color: 0xffcccc });
+    const redMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+    const orangeMaterial = new THREE.MeshBasicMaterial({ color: 0xfa5000 });
+    const yellowMaterial = new THREE.MeshBasicMaterial({ color: 0xfff000 });
+    const greenMaterial = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+    const blueMaterial = new THREE.MeshBasicMaterial({ color: 0x0000ff });
+    const blackMaterial = new THREE.MeshBasicMaterial({ color: 0x000000 });
+    
 
     const geometry = new THREE.BoxGeometry(1, 1, 1);
     const sideColors = [
       [
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //back right
-        new THREE.MeshBasicMaterial({ color: 0x0000ff }), //left
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //top
-        new THREE.MeshBasicMaterial({ color: 0xffff00 }), //bottom
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //right
-        new THREE.MeshBasicMaterial({ color: 0xfa5000 }), //back left
+        blackMaterial,
+        blueMaterial,
+        blackMaterial,
+        yellowMaterial,
+        blackMaterial,
+        orangeMaterial,
       ],
       [
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //back right
-        new THREE.MeshBasicMaterial({ color: 0x0000ff }), //left
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //top
-        new THREE.MeshBasicMaterial({ color: 0xfff000 }), //bottom
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //right
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //back left
+        blackMaterial,
+        blueMaterial,
+        blackMaterial,
+        yellowMaterial,
+        blackMaterial,
+        blackMaterial,
       ],
       [
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //back right
-        new THREE.MeshBasicMaterial({ color: 0x0000ff }), //left
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //top
-        new THREE.MeshBasicMaterial({ color: 0xfff000 }), //bottom
-        new THREE.MeshBasicMaterial({ color: 0xff0000 }), //right
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //back left
+        blackMaterial,
+        blueMaterial,
+        blackMaterial,
+        yellowMaterial,
+        redMaterial,
+        blackMaterial,
       ],
       [
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //back right
-        new THREE.MeshBasicMaterial({ color: 0x0000ff }), //left
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //top
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //bottom
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //right
-        new THREE.MeshBasicMaterial({ color: 0xfa5000 }), //back left
+        blackMaterial,
+        blueMaterial,
+        blackMaterial,
+        blackMaterial,
+        blackMaterial,
+        orangeMaterial,
       ],
       [
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //back right
-        new THREE.MeshBasicMaterial({ color: 0x0000ff }), //left
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //top
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //bottom
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //right
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //back left
+        blackMaterial,
+        blueMaterial,
+        blackMaterial,
+        blackMaterial,
+        blackMaterial,
+        blackMaterial,
       ],
       [
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //back right
-        new THREE.MeshBasicMaterial({ color: 0x0000ff }), //left
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //top
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //bottom
-        new THREE.MeshBasicMaterial({ color: 0xff0000 }), //right
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //back left
+        blackMaterial,
+        blueMaterial,
+        blackMaterial,
+        blackMaterial,
+        redMaterial,
+        blackMaterial,
       ],
       [
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //back right
-        new THREE.MeshBasicMaterial({ color: 0x0000ff }), //left
-        whiteMaterial, //top
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //bottom
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //right
-        new THREE.MeshBasicMaterial({ color: 0xfa5000 }), //back left
+        blackMaterial,
+        blueMaterial,
+        whiteMaterial,
+        blackMaterial,
+        blackMaterial,
+        orangeMaterial,
       ],
       [
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //back right
-        new THREE.MeshBasicMaterial({ color: 0x0000ff }), //left
-        whiteMaterial, //top
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //bottom
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //right
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //back left
+        blackMaterial,
+        blueMaterial,
+        whiteMaterial,
+        blackMaterial,
+        blackMaterial,
+        blackMaterial,
       ],
       [
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //back right
-        new THREE.MeshBasicMaterial({ color: 0x0000ff }), //left
-        whiteMaterial, //top
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //bottom
-        new THREE.MeshBasicMaterial({ color: 0xff0000 }), //right
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //back left
+        blackMaterial,
+        blueMaterial,
+        whiteMaterial,
+        blackMaterial,
+        redMaterial,
+        blackMaterial,
       ],
       [
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //back right
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //left
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //top
-        new THREE.MeshBasicMaterial({ color: 0xfff000 }), //bottom
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //right
-        new THREE.MeshBasicMaterial({ color: 0xfa5000 }), //back left
+        blackMaterial,
+        blackMaterial,
+        blackMaterial,
+        yellowMaterial,
+        blackMaterial,
+        orangeMaterial,
       ],
       [
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //back right
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //left
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //top
-        new THREE.MeshBasicMaterial({ color: 0xfff000 }), //bottom
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //right
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //back left
+        blackMaterial,
+        blackMaterial,
+        blackMaterial,
+        yellowMaterial,
+        blackMaterial,
+        blackMaterial,
       ],
       [
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //back right
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //left
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //top
-        new THREE.MeshBasicMaterial({ color: 0xfff000 }), //bottom
-        new THREE.MeshBasicMaterial({ color: 0xff0000 }), //right
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //back left
+        blackMaterial,
+        blackMaterial,
+        blackMaterial,
+        yellowMaterial,
+        redMaterial,
+        blackMaterial,
       ],
       [
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //back right
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //left
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //top
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //bottom
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //right
-        new THREE.MeshBasicMaterial({ color: 0xff5000 }), //back left
+        blackMaterial,
+        blackMaterial,
+        blackMaterial,
+        blackMaterial,
+        blackMaterial,
+        orangeMaterial,
       ],
       [
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //back right
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //left
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //top
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //bottom
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //right
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //back left
+        blackMaterial,
+        blackMaterial,
+        blackMaterial,
+        blackMaterial,
+        blackMaterial,
+        blackMaterial,
       ],
       [
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //back right
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //left
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //top
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //bottom
-        new THREE.MeshBasicMaterial({ color: 0xff0000 }), //right
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //back left
+        blackMaterial,
+        blackMaterial,
+        blackMaterial,
+        blackMaterial,
+        redMaterial,
+        blackMaterial,
       ],
       [
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //back right
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //left
-        whiteMaterial, //top
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //bottom
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //right
-        new THREE.MeshBasicMaterial({ color: 0xfa5000 }), //back left
+        blackMaterial,
+        blackMaterial,
+        whiteMaterial,
+        blackMaterial,
+        blackMaterial,
+        orangeMaterial,
       ],
       [
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //back right
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //left
-        whiteMaterial, //top
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //bottom
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //right
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //back left
+        blackMaterial,
+        blackMaterial,
+        whiteMaterial,
+        blackMaterial,
+        blackMaterial,
+        blackMaterial,
       ],
       [
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //back right
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //left
-        whiteMaterial, //top
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //bottom
-        new THREE.MeshBasicMaterial({ color: 0xff0000 }), //right
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //back left
+        blackMaterial,
+        blackMaterial,
+        whiteMaterial,
+        blackMaterial,
+        redMaterial,
+        blackMaterial,
       ],
       [
-        new THREE.MeshBasicMaterial({ color: 0x00ff00 }), //back right
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //left
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //top
-        new THREE.MeshBasicMaterial({ color: 0xfff000 }), //bottom
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //right
-        new THREE.MeshBasicMaterial({ color: 0xfa5000 }), //back left
+        greenMaterial,
+        blackMaterial,
+        blackMaterial,
+        yellowMaterial,
+        blackMaterial,
+        orangeMaterial,
       ],
       [
-        new THREE.MeshBasicMaterial({ color: 0x00ff00 }), //back right
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //left
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //top
-        new THREE.MeshBasicMaterial({ color: 0xfff000 }), //bottom
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //right
-        new THREE.MeshBasicMaterial({ color: 0xfa5000 }), //back left
+        greenMaterial,
+        blackMaterial,
+        blackMaterial,
+        yellowMaterial,
+        blackMaterial,
+        orangeMaterial,
       ],
       [
-        new THREE.MeshBasicMaterial({ color: 0x00ff00 }), //back right
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //left
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //top
-        new THREE.MeshBasicMaterial({ color: 0xfff000 }), //bottom
-        new THREE.MeshBasicMaterial({ color: 0xff0000 }), //right
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //back left
+        greenMaterial,
+        blackMaterial,
+        blackMaterial,
+        yellowMaterial,
+        redMaterial,
+        blackMaterial,
       ],
       [
-        new THREE.MeshBasicMaterial({ color: 0x00ff00 }), //back right
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //left
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //top
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //bottom
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //right
-        new THREE.MeshBasicMaterial({ color: 0xfa5000 }), //back left
+        greenMaterial,
+        blackMaterial,
+        blackMaterial,
+        blackMaterial,
+        blackMaterial,
+        orangeMaterial,
       ],
       [
-        new THREE.MeshBasicMaterial({ color: 0x00ff00 }), //back right
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //left
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //top
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //bottom
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //right
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //back left
+        greenMaterial,
+        blackMaterial,
+        blackMaterial,
+        blackMaterial,
+        blackMaterial,
+        blackMaterial,
       ],
       [
-        new THREE.MeshBasicMaterial({ color: 0x00ff00 }), //back right
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //left
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //top
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //bottom
-        new THREE.MeshBasicMaterial({ color: 0xff0000 }), //right
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //back left
+        greenMaterial,
+        blackMaterial,
+        blackMaterial,
+        blackMaterial,
+        redMaterial,
+        blackMaterial,
       ],
       [
-        new THREE.MeshBasicMaterial({ color: 0x00ff00 }), //back right
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //left
-        whiteMaterial, //top
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //bottom
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //right
-        new THREE.MeshBasicMaterial({ color: 0xfa5000 }), //back left
+        greenMaterial,
+        blackMaterial,
+        whiteMaterial,
+        blackMaterial,
+        blackMaterial,
+        orangeMaterial,
       ],
       [
-        greenMaterial, //back right
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //left
-        whiteMaterial, //top
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //bottom
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //right
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //back left
+        greenMaterial,
+        blackMaterial,
+        whiteMaterial,
+        blackMaterial,
+        blackMaterial,
+        blackMaterial,
       ],
       [
-        new THREE.MeshBasicMaterial({ color: 0x00ff00 }), //back right
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //left
-        whiteMaterial, //top
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //bottom
-        new THREE.MeshBasicMaterial({ color: 0xff0000 }), //right
-        new THREE.MeshBasicMaterial({ color: 0x000000 }), //back left
+        greenMaterial,
+        blackMaterial,
+        whiteMaterial,
+        blackMaterial,
+        redMaterial,
+        blackMaterial,
       ],
     ];
     const blocks = [];
