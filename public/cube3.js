@@ -3,8 +3,7 @@ Easy Parts
 - Keyboard input. (If i press f, then the cube would rotate the front side clockwise)
 - Rotation around the center of the cube, not the corner.
 - Make floating arrow to define with side is up.
-- Tracking which colored cube is in which physical location.
-
+- Tracking which colored cube is in which physical location. We can track it by number or location (I think Ill do the axis) [Done]
 
 Hard Parts
 - Rotate a face with animations.
@@ -16,6 +15,8 @@ Parts We May Not Get To
 */
 
 const { enable3d, Scene3D, Canvas, THREE } = ENABLE3D;
+
+let debugCubeLocations = null;
 
 class MainScene extends Scene3D {
   constructor() {
@@ -30,7 +31,10 @@ class MainScene extends Scene3D {
     this.mousePosition = new THREE.Vector3();
     this.blockOffset = new THREE.Vector3();
     this.prev == { x: 0, y: 0 };
+    this.cubeLocations = [];
+    debugCubeLocations = this.cubeLocations;
   }
+
   async create() {
     // this.third.warpSpeed('-orbitControls')
 
@@ -53,11 +57,14 @@ class MainScene extends Scene3D {
     const CUBE_SIZE = 3;
     let cubeCount = 0;
     for (let i = 0; i < CUBE_SIZE; i++) {
+      this.cubeLocations[i] = [];
       for (let j = 0; j < CUBE_SIZE; j++) {
+        this.cubeLocations[i][j] = [];
         for (let k = 0; k < CUBE_SIZE; k++) {
           const cube = new THREE.Mesh(geometry, sideColors[cubeCount]);
           cube.position.set(i - 1.5, j - 1.5, k - 1.5);
-          this.third.add.existing(cube); //magic line
+          this.third.add.existing(cube);
+          this.cubeLocations[i][j][k] = cube;
           cubeCount++;
         }
       }
